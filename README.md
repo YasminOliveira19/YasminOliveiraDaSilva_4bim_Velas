@@ -184,7 +184,7 @@ Aplicar os conhecimentos adquiridos durante a disciplina de Desenvolvimento Web 
 
 ## Diagrama do Banco de Dados
 
-![Diagrama Entidade-Relacionamento da Lumière](../Projeto%204°%20Bimestre/front/Visão%20ADM/imagens/mermaid-diagram.png)
+[Diagrama Entidade-Relacionamento da Lumière](front/Visão%20ADM/imagens/mermaid-diagram.png)
 
 
 ## Desenvolvedora
