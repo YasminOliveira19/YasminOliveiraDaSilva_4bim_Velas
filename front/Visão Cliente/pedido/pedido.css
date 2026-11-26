@@ -1,0 +1,162 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f4ef;
+    color: #493b36;
+}
+
+header {
+    background: #fff;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    font-family: Georgia, serif;
+    letter-spacing: 4px;
+}
+
+.logo p {
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+nav, .icones {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+a {
+    color: #493b36;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b78d7d;
+}
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 45px auto;
+    min-height: 55vh;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#lista-pedidos {
+    display: grid;
+    gap: 22px;
+}
+
+.pedido {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e8cfc4;
+}
+
+.cabecalho-pedido {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.status {
+    font-weight: bold;
+    color: #96705f;
+}
+
+.itens-pedido {
+    padding: 18px 0;
+    line-height: 1.8;
+}
+
+.resumo-pedido {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    line-height: 1.8;
+}
+
+.cancelar {
+    margin-top: 18px;
+    padding: 11px 18px;
+    background: #a85f55;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancelar:hover {
+    background: #87483f;
+}
+
+.sem-pedidos {
+    text-align: center;
+    padding: 35px;
+    background: white;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .titulo h2 {
+        font-size: 25px;
+    }
+}
+.item-pedido {
+    padding: 15px 0;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.item-pedido:last-child {
+    border-bottom: none;
+}
+
+.item-pedido strong {
+    color: #493b36;
+    font-size: 16px;
+}
+
+.item-pedido p {
+    margin: 5px 0;
+    font-size: 14px;
+}

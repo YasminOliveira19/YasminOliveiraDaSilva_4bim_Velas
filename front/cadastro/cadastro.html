@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lumière | Cadastro</title>
+
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            LUMIÈRE
+        </div>
+    </header>
+
+    <main class="container-master">
+
+        <section class="form-esquerda">
+
+            <h2>Criar conta</h2>
+            <p>Cadastre-se para aproveitar a experiência Lumière.</p>
+
+            <label for="inputCPF_Pessoa">CPF</label>
+            <input type="text" id="inputCPF_Pessoa"
+                placeholder="Digite seu CPF" maxlength="11">
+
+            <label for="inputNome_Pessoa">Nome completo</label>
+            <input type="text" id="inputNome_Pessoa"
+                placeholder="Digite seu nome completo">
+
+            <label for="inputEmail_Pessoa">E-mail</label>
+            <input type="email" id="inputEmail_Pessoa"
+                placeholder="Digite seu e-mail">
+
+            <label for="inputSenha_Pessoa">Senha</label>
+            <input type="password" id="inputSenha_Pessoa"
+                placeholder="Crie uma senha">
+
+            <label for="inputConfirmarSenha">Confirmar senha</label>
+            <input type="password" id="inputConfirmarSenha"
+                placeholder="Digite a senha novamente">
+
+            <input type="button" value="CRIAR CONTA"
+                id="btCadastrar" onclick="cadastrar()">
+
+            <div id="divAviso"></div>
+
+            <p>
+                Já tem uma conta?
+                <a href="../login/login.html">Entrar</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Lumière</p>
+        <p>Yasmin Oliveira da Silva | DW1 | M32 | 2026</p>
+    </footer>
+
+    <script src="cadastro.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+}
+
+/* CABEÇALHO */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 6%;
+    background-color: #fffaf6;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h1 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #493b36;
+}
+
+.logo p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #493b36;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a9685e;
+}
+
+.icones {
+    display: flex;
+    gap: 18px;
+}
+
+.icones a {
+    text-decoration: none;
+    color: #493b36;
+    font-size: 22px;
+}
+
+/* TÍTULO */
+.titulo-pagina {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+.titulo-pagina h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.titulo-pagina p {
+    color: #806d65;
+    font-size: 14px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo-finalizar {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 35px;
+    width: 88%;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* DADOS DE ENTREGA */
+.dados-entrega {
+    background-color: #fffaf6;
+    border: 1px solid #e8cfc4;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.dados-entrega h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 22px;
+    margin-top: 15px;
+}
+
+.dados-entrega h3:first-child {
+    margin-top: 0;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.campo label {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9b8aa;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #493b36;
+    font-size: 14px;
+    outline: none;
+}
+
+.campo input:focus {
+    border-color: #a9685e;
+}
+
+.campos-linha {
+    display: flex;
+    gap: 18px;
+}
+
+/* FORMAS DE PAGAMENTO */
+.opcoes-pagamento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+.opcoes-pagamento label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.opcoes-pagamento input {
+    accent-color: #a9685e;
+}
+
+/* RESUMO DO PEDIDO */
+.resumo-pedido {
+    background-color: #fffaf6;
+    border: 1px solid #e8cfc4;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.resumo-pedido h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+/* ITENS DO PEDIDO */
+#itens-pedido {
+    border-bottom: 1px solid #e8cfc4;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.linha-resumo,
+.linha-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.linha-total {
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: none;
+    margin-top: 8px;
+}
+
+/* BOTÃO CONFIRMAR */
+#confirmar-pedido {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #a9685e;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#confirmar-pedido:hover {
+    background-color: #713c32;
+}
+
+/* VOLTAR AO CARRINHO */
+.voltar-carrinho {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #a9685e;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.voltar-carrinho:hover {
+    color: #713c32;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #493b36;
+    color: #fffaf6;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    header {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .conteudo-finalizar {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .conteudo-finalizar {
+        width: 92%;
+    }
+
+    .dados-entrega,
+    .resumo-pedido {
+        padding: 20px;
+    }
+
+    .campos-linha {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+/* BOTÃO LOGIN / MEU PERFIL */
+
+#linkConta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #e8cfc4;
+    border: 1px solid #d9b8aa;
+    border-radius: 25px;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+#linkConta:hover {
+    background-color: #d9b8aa;
+    box-shadow: 0 3px 8px rgba(73, 59, 54, 0.12);
+}
+
+#textoConta {
+    font-weight: 500;
+}

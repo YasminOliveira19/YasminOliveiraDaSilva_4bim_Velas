@@ -1,0 +1,363 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+}
+
+/* CABEÇALHO */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 6%;
+    background-color: #fffaf6;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h1 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+    color: #493b36;
+}
+
+.logo p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #493b36;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a9685e;
+}
+
+.icones {
+    display: flex;
+    gap: 18px;
+}
+
+.icones a {
+    text-decoration: none;
+    color: #493b36;
+    font-size: 22px;
+}
+
+/* TÍTULO */
+.titulo-pagina {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+.titulo-pagina h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.titulo-pagina p {
+    color: #806d65;
+    font-size: 14px;
+}
+
+/* CONTEÚDO DO CARRINHO */
+.conteudo-carrinho {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 35px;
+    width: 88%;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+/* LISTA DE PRODUTOS */
+.lista-carrinho {
+    background-color: #fffaf6;
+    border: 1px solid #e8cfc4;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.lista-carrinho h3,
+.resumo-compra h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+/* ITEM DO CARRINHO */
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.informacoes-produto {
+    flex: 1;
+}
+
+.informacoes-produto h4 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.informacoes-produto p {
+    font-size: 13px;
+    color: #806d65;
+    margin-bottom: 5px;
+}
+
+.preco-produto {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* QUANTIDADE */
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantidade button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d9b8aa;
+    border-radius: 4px;
+    background-color: #fffaf6;
+    color: #493b36;
+    cursor: pointer;
+}
+
+.quantidade span {
+    font-size: 14px;
+}
+
+/* REMOVER PRODUTO */
+.remover-produto {
+    border: none;
+    background: none;
+    color: #a9685e;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.remover-produto:hover {
+    text-decoration: underline;
+}
+
+/* CONTINUAR COMPRANDO */
+.continuar-comprando {
+    display: inline-block;
+    margin-top: 25px;
+    color: #a9685e;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.continuar-comprando:hover {
+    color: #713c32;
+}
+
+/* RESUMO DA COMPRA */
+.resumo-compra {
+    background-color: #fffaf6;
+    border: 1px solid #e8cfc4;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.linha-resumo,
+.linha-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.linha-total {
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: none;
+    margin-top: 8px;
+}
+
+/* BOTÃO FINALIZAR */
+#finalizar-compra {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #a9685e;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#finalizar-compra:hover {
+    background-color: #713c32;
+}
+
+/* CARRINHO VAZIO */
+.carrinho-vazio {
+    text-align: center;
+    padding: 35px 15px;
+    color: #806d65;
+    font-size: 14px;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #493b36;
+    color: #fffaf6;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    header {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .conteudo-carrinho {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .conteudo-carrinho {
+        width: 92%;
+    }
+
+    .lista-carrinho,
+    .resumo-compra {
+        padding: 18px;
+    }
+
+    .item-carrinho {
+        flex-wrap: wrap;
+    }
+}
+/* ENDEREÇO DE ENTREGA */
+.endereco-entrega {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e8cfc4;
+}
+
+.endereco-entrega h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+.endereco-entrega label {
+    display: block;
+    font-size: 13px;
+    margin: 12px 0 7px;
+    color: #493b36;
+}
+
+.endereco-entrega input,
+.endereco-entrega select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d9b8aa;
+    border-radius: 4px;
+    background-color: #fffaf6;
+    color: #493b36;
+    font-size: 14px;
+    outline: none;
+}
+
+.endereco-entrega input:focus,
+.endereco-entrega select:focus {
+    border-color: #a9685e;
+}
+
+/* BOTÃO DESABILITADO */
+#finalizar-compra:disabled {
+    background-color: #c9b8b0;
+    cursor: not-allowed;
+}/* BOTÃO LOGIN / MEU PERFIL */
+
+#linkConta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #e8cfc4;
+    border: 1px solid #d9b8aa;
+    border-radius: 25px;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+#linkConta:hover {
+    background-color: #d9b8aa;
+    box-shadow: 0 3px 8px rgba(73, 59, 54, 0.12);
+}
+
+#textoConta {
+    font-weight: 500;
+}

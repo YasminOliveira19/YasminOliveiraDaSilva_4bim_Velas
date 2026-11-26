@@ -1,0 +1,299 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    min-height: 87px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: relative;
+}
+
+.titulo {
+    flex: 1;
+    text-align: center;
+}
+
+.titulo h1 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.titulo p {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #795e56;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #493b36;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+nav a:hover,
+nav a.ativo {
+    color: #a9685e;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.container {
+    background-color: #ffffff;
+    width: 92%;
+    margin: 20px auto;
+    padding: 35px 45px;
+    min-height: 500px;
+}
+
+/* SEÇÕES */
+
+.secao-funcionarios,
+.secao-promocao {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+/* TABELA */
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    background-color: #f8f4ef;
+    font-weight: normal;
+    text-align: left;
+    padding: 14px 12px;
+    color: #493b36;
+}
+
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #eadbd5;
+}
+
+tr:hover {
+    background-color: #fcf8f5;
+}
+
+/* CAMPOS */
+
+.campo {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+input,
+select {
+    width: 100%;
+    height: 43px;
+    padding: 10px;
+    border: 1px solid #e8cfc4;
+    background-color: #f8f4ef;
+    color: #493b36;
+    font-size: 13px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #a9685e;
+}
+
+/* BUSCA */
+
+.campo-busca {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-busca input {
+    flex: 1;
+}
+
+/* BOTÕES */
+
+button {
+    border: none;
+    background-color: #a87979;
+    color: #ffffff;
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #8f6262;
+}
+
+#btPromover {
+    margin-top: 5px;
+}
+
+/* DADOS DO CLIENTE */
+
+#dadosCliente {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* AVISOS */
+
+#divAviso {
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* BOTÕES DA TABELA */
+
+.acoes {
+    display: flex;
+    gap: 8px;
+}
+
+.acoes button {
+    padding: 8px 12px;
+}
+
+/* RODAPÉ */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #795e56;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+    .cabecalho {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .titulo {
+        width: 100%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .container {
+        width: 96%;
+        padding: 25px 18px;
+    }
+}
+
+@media (max-width: 500px) {
+    .titulo h1 {
+        font-size: 25px;
+    }
+
+    .campo-busca {
+        flex-direction: column;
+    }
+
+    .campo-busca button {
+        width: 100%;
+    }
+}
+/* BOTÃO LOGIN / MEU PERFIL */
+
+#linkConta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #e8cfc4;
+    border: 1px solid #d9b8aa;
+    border-radius: 25px;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+#linkConta:hover {
+    background-color: #d9b8aa;
+    box-shadow: 0 3px 8px rgba(73, 59, 54, 0.12);
+}
+
+#textoConta {
+    font-weight: 500;
+}/* AJUSTE DO CABEÇALHO */
+
+header {
+    position: relative;
+    padding: 25px 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    margin-bottom: 25px;
+}
+
+nav {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}

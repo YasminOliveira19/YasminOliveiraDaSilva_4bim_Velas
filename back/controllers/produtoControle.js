@@ -4,11 +4,22 @@ const path = require('path');
 const sharp = require('sharp');
 
 // Listar todos os produtos
+
 exports.listarProdutos = async (req, res) => {
     try {
-        const result = await query(
-            'SELECT * FROM public.produto ORDER BY id_produto'
-        );
+        console.log('TESTE: NOVA FUNÇÃO listarProdutos');
+        const result = await query(`
+            SELECT
+                p.*,
+                c.nome_categoria AS nome_categoria,
+                u.nome_unidade_medida AS nome_unidade_medida
+            FROM public.produto p
+            LEFT JOIN public.categoria c
+                ON p.id_categoria = c.id_categoria
+            LEFT JOIN public.unidade_medida u
+                ON p.id_unidade_medida = u.id_unidade_medida
+            ORDER BY p.id_produto
+        `);
 
         res.json({
             sucesso: true,
@@ -68,38 +79,73 @@ exports.obterProduto = async (req, res) => {
 exports.criarProduto = async (req, res) => {
     try {
         const {
-            id_produto,
             nome_produto,
-            estoque,
+            id_tipo_produto,
             id_categoria,
-            id_unidade_medida
+            preco_200g,
+            preco_400g,
+            preco_600g,
+            estoque_200g,
+            estoque_400g,
+            estoque_600g
         } = req.body;
 
-        if (!nome_produto) {
+        if (!nome_produto || !id_tipo_produto || !id_categoria) {
             return res.status(400).json({
                 sucesso: false,
-                mensagem: 'O nome do produto é obrigatório.'
+                mensagem: 'Preencha o nome, o tipo e a categoria do produto.'
+            });
+        }
+
+        const precos = [preco_200g, preco_400g, preco_600g].map(Number);
+        const estoques = [estoque_200g, estoque_400g, estoque_600g].map(Number);
+
+        if (precos.some(p => !Number.isFinite(p) || p < 0)) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Informe preços válidos para os três tamanhos.'
+            });
+        }
+
+        if (estoques.some(e => !Number.isInteger(e) || e < 0)) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Informe estoques inteiros e válidos para os três tamanhos.'
             });
         }
 
         const sql = `
             INSERT INTO public.produto (
-                id_produto,
                 nome_produto,
                 estoque,
+                id_tipo_produto,
                 id_categoria,
-                id_unidade_medida
+                id_unidade_medida,
+                preco_produto,
+                preco_200g,
+                preco_400g,
+                preco_600g,
+                estoque_200g,
+                estoque_400g,
+                estoque_600g
             )
-            VALUES ($1, $2, $3, $4, $5)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
             RETURNING *
         `;
 
         const values = [
-            id_produto,
             nome_produto,
-            estoque || 0,
+            estoques[0],
+            id_tipo_produto,
             id_categoria,
-            id_unidade_medida
+            1,
+            precos[0],
+            precos[0],
+            precos[1],
+            precos[2],
+            estoques[0],
+            estoques[1],
+            estoques[2]
         ];
 
         const result = await query(sql, values);
@@ -116,9 +162,10 @@ exports.criarProduto = async (req, res) => {
         if (error.code === '23503') {
             return res.status(400).json({
                 sucesso: false,
-                mensagem: 'A categoria ou unidade de medida informada não existe.'
+                mensagem: 'O tipo ou a categoria informada não existe.'
             });
         }
+        
 
         res.status(500).json({
             sucesso: false,
@@ -132,29 +179,81 @@ exports.atualizarProduto = async (req, res) => {
     try {
         const id = parseInt(req.params.id, 10);
 
+        if (!Number.isInteger(id) || id <= 0) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'ID inválido.'
+            });
+        }
+
         const {
             nome_produto,
-            estoque,
+            id_tipo_produto,
             id_categoria,
-            id_unidade_medida
+            preco_200g,
+            preco_400g,
+            preco_600g,
+            estoque_200g,
+            estoque_400g,
+            estoque_600g
         } = req.body;
+
+        if (!nome_produto || !id_tipo_produto || !id_categoria) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Preencha o nome, o tipo e a categoria do produto.'
+            });
+        }
+
+        const precos = [preco_200g, preco_400g, preco_600g].map(Number);
+        const estoques = [estoque_200g, estoque_400g, estoque_600g].map(Number);
+
+        if (precos.some(p => !Number.isFinite(p) || p < 0)) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Informe preços válidos para os três tamanhos.'
+            });
+        }
+
+        if (estoques.some(e => !Number.isInteger(e) || e < 0)) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Informe estoques inteiros e válidos para os três tamanhos.'
+            });
+        }
 
         const sql = `
             UPDATE public.produto
             SET
                 nome_produto = $1,
                 estoque = $2,
-                id_categoria = $3,
-                id_unidade_medida = $4
-            WHERE id_produto = $5
+                id_tipo_produto = $3,
+                id_categoria = $4,
+                id_unidade_medida = $5,
+                preco_produto = $6,
+                preco_200g = $7,
+                preco_400g = $8,
+                preco_600g = $9,
+                estoque_200g = $10,
+                estoque_400g = $11,
+                estoque_600g = $12
+            WHERE id_produto = $13
             RETURNING *
         `;
 
         const values = [
             nome_produto,
-            estoque || 0,
+            estoques[0],
+            id_tipo_produto,
             id_categoria,
-            id_unidade_medida,
+            1,
+            precos[0],
+            precos[0],
+            precos[1],
+            precos[2],
+            estoques[0],
+            estoques[1],
+            estoques[2],
             id
         ];
 
@@ -179,7 +278,7 @@ exports.atualizarProduto = async (req, res) => {
         if (error.code === '23503') {
             return res.status(400).json({
                 sucesso: false,
-                mensagem: 'A categoria ou unidade de medida informada não existe.'
+                mensagem: 'O tipo ou a categoria informada não existe.'
             });
         }
 
@@ -204,7 +303,7 @@ exports.uploadImagem = async (req, res) => {
 
         const pastaImagens = path.join(
             __dirname,
-            '../../front/imagens'
+            '../../front/Visão ADM/imagens'
         );
 
         if (!fs.existsSync(pastaImagens)) {
@@ -252,7 +351,7 @@ exports.deletarProduto = async (req, res) => {
 
         const imgPath = path.join(
             __dirname,
-            '../../front/imagens',
+            '../../front/Visão ADM/imagens',
             `${id}.png`
         );
 
@@ -271,6 +370,29 @@ exports.deletarProduto = async (req, res) => {
         res.status(500).json({
             sucesso: false,
             mensagem: 'Erro ao excluir produto.'
+        });
+    }
+};
+
+// Listar tipos de produto
+// Listar tipos de produto
+exports.listarTiposProduto = async (req, res) => {
+    try {
+        const result = await query(
+            'SELECT * FROM public.tipo_produto ORDER BY id_tipo_produto'
+        );
+
+        res.json({
+            sucesso: true,
+            tipos: result.rows
+        });
+
+    } catch (error) {
+        console.error('Erro ao listar tipos:', error);
+
+        res.status(500).json({
+            sucesso: false,
+            mensagem: 'Erro ao listar tipos de produto.'
         });
     }
 };

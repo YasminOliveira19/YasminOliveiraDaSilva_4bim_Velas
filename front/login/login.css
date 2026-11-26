@@ -86,6 +86,19 @@ input[type="password"] {
     background-color: #d9b8aa;
 }
 
+/* LINK DE LOGIN */
+
+.form-esquerda a {
+    color: #a9685e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-esquerda a:hover {
+    color: #713c32;
+    text-decoration: underline;
+}
+
 #divAviso {
     margin-top: 15px;
     text-align: center;

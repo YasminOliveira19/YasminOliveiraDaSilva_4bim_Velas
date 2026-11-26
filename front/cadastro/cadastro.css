@@ -1,0 +1,162 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+}
+
+/* CABEÇALHO */
+
+header {
+    width: 100%;
+    padding: 25px 50px;
+    background-color: #f8f4ef;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #713c32;
+}
+
+/* CONTEÚDO */
+
+.container-master {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.form-esquerda {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background-color: #fffdfb;
+    border: 1px solid #e8cfc4;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(73, 59, 54, 0.08);
+}
+
+.form-esquerda h2 {
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    color: #713c32;
+    text-align: center;
+}
+
+.form-esquerda p {
+    margin-bottom: 25px;
+    color: #796a64;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.form-esquerda label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #493b36;
+}
+
+.form-esquerda input:not([type="button"]) {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #d9c8c0;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-esquerda input:focus {
+    border-color: #a9685e;
+    box-shadow: 0 0 4px rgba(169, 104, 94, 0.25);
+}
+
+/* BOTÃO */
+
+#btCadastrar {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #713c32;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btCadastrar:hover {
+    background-color: #a9685e;
+}
+
+/* LINK DE LOGIN */
+
+.form-esquerda a {
+    color: #a9685e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-esquerda a:hover {
+    color: #713c32;
+    text-decoration: underline;
+}
+
+#divAviso {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* RODAPÉ */
+
+footer {
+    padding: 22px;
+    background-color: #e8cfc4;
+    text-align: center;
+    color: #493b36;
+}
+
+footer p {
+    margin: 5px;
+    font-size: 13px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 500px) {
+    header {
+        padding: 20px;
+    }
+
+    .form-esquerda {
+        padding: 28px 22px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+}

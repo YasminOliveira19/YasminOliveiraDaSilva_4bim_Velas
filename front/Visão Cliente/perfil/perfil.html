@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière | Meu Perfil</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="../../menu/menu.html">
+                <h1>LUMIÈRE</h1>
+                <p>VELAS AROMÁTICAS</p>
+            </a>
+        </div>
+
+        <nav>
+            <a href="../../menu/menu.html" id="linkInicio">Início</a>
+            <a href="../../Visão ADM/produto/produtos.html" id="linkAdministrativo">
+                Administração
+            </a>
+        </nav>
+    </header>
+
+    <main class="container-perfil">
+
+        <section class="perfil">
+
+            <h2>Meu perfil</h2>
+            <p class="subtitulo">
+                Consulte e atualize seus dados pessoais.
+            </p>
+
+            <div id="informacaoAcesso"></div>
+
+            <form id="formPerfil">
+
+                <div class="campo">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" readonly>
+                </div>
+
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="campo" id="campoCargo">
+                    <label for="cargo">Cargo</label>
+                    <input type="text" id="cargo" readonly>
+                </div>
+
+                <button type="submit" id="salvarPerfil">
+                    SALVAR ALTERAÇÕES
+                </button>
+
+                <p id="mensagemPerfil"></p>
+
+            </form>
+
+            <button type="button" id="sairConta" class="botao-sair">
+                SAIR DA CONTA
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Lumière — Loja de Velas Aromáticas</p>
+        <p>Yasmin Oliveira da Silva | DW1 | 2026</p>
+    </footer>
+
+    <script src="perfil.js"></script>
+
+</body>
+</html>

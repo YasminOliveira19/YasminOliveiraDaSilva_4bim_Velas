@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionários</title>
+    <link rel="stylesheet" href="funcionarios.css">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="titulo">
+            <h1>Cadastro de Funcionários</h1>
+            <p>Gerencie a equipe da Lumière.</p>
+        </div>
+
+        <nav>
+            <a href="../../Visão ADM/produto/produtos.html">Produtos</a>
+            <a href="../../Visão ADM/categoria/categorias.html">Categorias</a>
+            <a href="../../Visão ADM/cliente/clientes.html">Clientes</a>
+            <a href="../../Visão ADM/pedido/pedido.html">Pedidos</a>
+            <a href="../../Visão ADM/funcionarios/funcionarios.html">Funcionários</a>
+            <a href="../../login/login.html" id="linkConta" aria-label="Login">
+                    👤 <span id="textoConta">Login</span>
+                </a>
+
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="secao-funcionarios">
+
+            <h2>Funcionários Cadastrados</h2>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Cargo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaFuncionarios">
+                        <!-- Funcionários carregados pelo JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <section class="secao-promocao">
+
+            <h2>Promover a Funcionário</h2>
+
+            <div class="campo">
+                <label for="inputCPF">CPF</label>
+
+                <div class="campo-busca">
+                    <input
+                        type="text"
+                        id="inputCPF"
+                        placeholder="Digite o CPF"
+                        maxlength="11"
+                    >
+
+                    <button type="button" onclick="buscarCliente()">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+
+            <div id="dadosCliente"></div>
+
+            <div class="campo">
+                <label for="selectCargo">Cargo</label>
+
+                <select id="selectCargo">
+                    <option value="">-- Selecione um Cargo --</option>
+                </select>
+            </div>
+
+            <button
+                type="button"
+                id="btPromover"
+                onclick="promoverFuncionario()"
+            >
+                Promover a Funcionário
+            </button>
+
+            <div id="divAviso"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Yasmin Oliveira da Silva | DW1 | M32 | 2026</p>
+    </footer>
+
+    <script src="funcionarios.js"></script>
+
+</body>
+</html>

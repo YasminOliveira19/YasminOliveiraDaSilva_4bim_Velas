@@ -1,0 +1,215 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CABEÇALHO */
+header {
+    background-color: #fff;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #493b36;
+}
+
+.logo h1 {
+    font-size: 28px;
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+
+.logo p {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #b88f7f;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.container-perfil {
+    width: 100%;
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.perfil {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(73, 59, 54, 0.08);
+}
+
+.perfil h2 {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #8a7770;
+    margin-bottom: 30px;
+}
+
+/* INFORMAÇÕES DE ACESSO */
+#informacaoAcesso {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #8a7770;
+    margin-bottom: 20px;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.campo label {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #493b36;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dfd2cb;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.campo input:focus {
+    border-color: #b88f7f;
+}
+
+.campo input[readonly] {
+    background-color: #f5f1ed;
+    color: #887b75;
+    cursor: not-allowed;
+}
+
+/* BOTÕES */
+#salvarPerfil,
+.botao-sair {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#salvarPerfil {
+    background-color: #e8cfc4;
+    color: #493b36;
+    margin-top: 8px;
+}
+
+#salvarPerfil:hover {
+    background-color: #d9b8aa;
+}
+
+.botao-sair {
+    margin-top: 15px;
+    background-color: transparent;
+    border: 1px solid #d9b8aa;
+    color: #805e52;
+}
+
+.botao-sair:hover {
+    background-color: #f8efeb;
+}
+
+/* MENSAGEM */
+#mensagemPerfil {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* RODAPÉ */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #e8cfc4;
+    padding: 20px;
+    text-align: center;
+    color: #8a7770;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    header {
+        padding: 18px 5%;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    .container-perfil {
+        margin: 25px auto;
+    }
+
+    .perfil {
+        padding: 25px 20px;
+    }
+
+    .perfil h2 {
+        font-size: 24px;
+    }
+}

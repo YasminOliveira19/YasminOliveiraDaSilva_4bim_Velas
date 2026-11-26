@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velas Perfumadas | Lumière</title>
+
+    <link rel="stylesheet" href="perfumadas.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="logo">
+            <h1>LUMIÈRE</h1>
+            <p>VELAS AROMÁTICAS</p>
+        </div>
+
+        <nav>
+            <a href="../../menu/menu.html">Início</a>
+            <a href="../../Visão Cliente/velas perfumadas/perfumadas.html">Velas Perfumadas</a>
+            <a href="../../Visão Cliente/velas com pedras/pedras.html">Velas com Pedras</a>
+            <a href="../../Visão Cliente/pastilhas perfumadas/pastilhas.html">Pastilhas Perfumadas</a>
+        </nav>
+
+        <div class="icones">
+<a href="../../login/login.html" id="linkConta" aria-label="Login">
+                    👤 <span id="textoConta">Login</span>
+                </a>
+            <a href="../../Visão Cliente/carrinho/carrinho.html">🛒</a>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <section class="titulo-pagina">
+            <h2>Velas Perfumadas</h2>
+            <p>Encontre a fragrância ideal para cada momento.</p>
+        </section>
+
+        <section class="conteudo-loja">
+
+            <!-- FILTRO -->
+            <aside class="filtros">
+                <h3>Filtrar produtos</h3>
+
+                <label for="categoria">Categoria</label>
+
+                <select id="categoria">
+                    <option value="todas">Todas</option>
+                    <option value="Relaxante">Relaxante</option>
+                    <option value="Aconchegante">Aconchegante</option>
+                    <option value="Energizante">Energizante</option>
+                    <option value="Romântica">Romântica</option>
+                    <option value="Decorativa">Decorativa</option>
+                    <option value="Floral">Floral</option>
+                    <option value="Frutal">Frutal</option>
+                    <option value="Herbal">Herbal</option>
+                    <option value="Cítrica">Cítrica</option>
+                    <option value="Amadeirada">Amadeirada</option>
+                </select>
+            </aside>
+
+            <!-- PRODUTOS -->
+            <section class="area-produtos">
+                <div class="lista-produtos" id="lista-produtos">
+
+                    <!-- Os produtos serão carregados pelo JavaScript -->
+
+                </div>
+            </section>
+
+
+<!-- JANELA DE DETALHES DO PRODUTO -->
+<section class="modal-produto" id="modalProduto" hidden>
+    <div class="conteudo-modal">
+
+        <button class="fechar-modal" id="fecharModal"
+                type="button" aria-label="Fechar janela">
+            &times;
+        </button>
+
+        <div class="modal-imagem">
+            <img src="" alt="Imagem do produto" id="imagemModal">
+        </div>
+
+        <div class="modal-informacoes">
+            <h2 id="nomeModal"></h2>
+
+            <p id="categoriaModal"></p>
+            <p class="preco-modal" id="precoModal"></p>
+
+           <div class="opcoes-produto">
+    <label for="tamanhoProduto">Tamanho:</label>
+    <select id="tamanhoProduto">
+        <option value="200">200 g</option>
+        <option value="400">400 g</option>
+        <option value="600">600 g</option>
+    </select>
+</div>
+
+            <div class="quantidade-produto">
+                <label for="quantidadeProduto">Quantidade:</label>
+                <input type="number" id="quantidadeProduto"
+                       value="1" min="1" step="1">
+            </div>
+
+            <p id="disponibilidadeModal"></p>
+
+            <button class="adicionar-carrinho" id="adicionarCarrinho"
+                    type="button">
+                ADICIONAR AO CARRINHO
+            </button>
+
+            <p id="mensagemCarrinho" aria-live="polite"></p>
+        </div>
+    </div>
+</section>
+
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Lumière — Loja de Velas Aromáticas</p>
+        <p>Yasmin Oliveira da Silva | DW1 | M32 | 2026</p>
+    </footer>
+
+    <script src="perfumadas.js"></script>
+
+</body>
+</html>

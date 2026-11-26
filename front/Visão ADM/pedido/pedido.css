@@ -1,0 +1,400 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #f8f4ef;
+    color: #493b36;
+}
+
+/* CABEÇALHO */
+
+header {
+    padding: 25px 20px;
+    text-align: center;
+    background-color: #f8f4ef;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #756a65;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #75635b;
+}
+
+nav a:hover {
+    color: #493b36;
+}
+
+/* CONTAINER */
+
+.container-master {
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.conteudo-principal {
+    display: flex;
+    gap: 50px;
+    padding: 45px;
+    background-color: #fff;
+}
+
+.form-esquerda {
+    width: 60%;
+    min-width: 0;
+}
+
+.form-direita {
+    width: 40%;
+    min-width: 0;
+}
+
+.form-esquerda h2,
+.form-direita h2 {
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+.form-esquerda h3 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8cfc4;
+}
+
+/* CAMPOS */
+
+.form-esquerda label,
+.form-direita label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #756a65;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #d9c3ba;
+    background-color: #f8f4ef;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #b99b8e;
+}
+
+input[readonly],
+select:disabled {
+    background-color: #f2ede8;
+    color: #756a65;
+}
+
+/* ID E BOTÕES */
+
+.linha-id {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.linha-id input[type="text"] {
+    flex: 1;
+    min-width: 0;
+}
+
+input[type="button"],
+button {
+    padding: 11px 20px;
+    border: none;
+    background-color: #a57b7b;
+    color: #302723;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="button"]:hover,
+button:hover {
+    background-color: #977167;
+}
+
+input[type="button"]:disabled,
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+/* FORMULÁRIO DOS ITENS */
+
+.form-direita h2 {
+    text-align: center;
+}
+
+#formItens {
+    padding: 20px;
+    background-color: #f8f4ef;
+    border: 1px solid #e8cfc4;
+    margin-bottom: 20px;
+}
+
+#formItens label:first-child {
+    margin-top: 0;
+}
+
+#btAdicionar {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ITENS DO PEDIDO */
+
+#itensPedido {
+    padding: 20px;
+    background-color: #f8f4ef;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #756a65;
+    line-height: 1.8;
+}
+
+.item-pedido {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #e8cfc4;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.item-pedido:last-child {
+    margin-bottom: 0;
+}
+
+.item-pedido strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #493b36;
+}
+
+.item-pedido button {
+    margin-top: 10px;
+}
+
+/* AVISO */
+
+#divAviso {
+    margin-top: 25px;
+    padding: 14px;
+    background-color: #f8f4ef;
+    border-left: 3px solid #d9b8aa;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #756a65;
+}
+
+/* LISTAGEM */
+
+.lista-Produto {
+    margin-top: 30px;
+    padding: 35px;
+    background-color: #fff;
+}
+
+.lista-Produto h3 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+#outputSaida {
+    padding: 20px;
+    background-color: #f8f4ef;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #756a65;
+}
+
+.pedido-listado {
+    padding: 15px 0;
+    border-bottom: 1px solid #e8cfc4;
+    line-height: 1.8;
+}
+
+.pedido-listado:first-child {
+    padding-top: 0;
+}
+
+.pedido-listado:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.pedido-listado strong {
+    color: #493b36;
+}
+
+/* RODAPÉ */
+
+footer {
+    margin-top: 30px;
+    padding: 25px;
+    text-align: center;
+    background-color: #493b36;
+    color: #f8f4ef;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 800px) {
+
+    .container-master {
+        width: 95%;
+    }
+
+    .conteudo-principal {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .form-esquerda,
+    .form-direita {
+        width: 100%;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    .conteudo-principal {
+        padding: 25px 20px;
+    }
+
+    .linha-id,
+    .botoes-acao {
+        flex-direction: column;
+    }
+
+    .linha-id input,
+    .botoes-acao input {
+        width: 100%;
+    }
+
+    .lista-Produto {
+        padding: 20px;
+    }
+}
+/* BOTÃO LOGIN / MEU PERFIL */
+
+#linkConta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: #e8cfc4;
+    border: 1px solid #d9b8aa;
+    border-radius: 25px;
+    color: #493b36;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+#linkConta:hover {
+    background-color: #d9b8aa;
+    box-shadow: 0 3px 8px rgba(73, 59, 54, 0.12);
+}
+
+#textoConta {
+    font-weight: 500;
+}/* AJUSTE DO CABEÇALHO */
+
+header {
+    position: relative;
+    padding: 25px 30px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+header p {
+    margin-bottom: 25px;
+}
+
+nav {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}

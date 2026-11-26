@@ -72,16 +72,17 @@ exports.obterCliente = async (req, res) => {
 // Criar cliente
 exports.criarCliente = async (req, res) => {
     try {
-      const {
+     const {
     cpf_pessoa,
     nome_pessoa,
-    email_pessoa
+    email_pessoa,
+    senha_pessoa
 } = req.body;
 
-if (!cpf_pessoa || !nome_pessoa || !email_pessoa) {
+if (!cpf_pessoa || !nome_pessoa || !email_pessoa || !senha_pessoa) {
     return res.status(400).json({
         sucesso: false,
-        mensagem: 'CPF, nome e e-mail são obrigatórios.'
+        mensagem: 'Preencha todos os campos.'
     });
 }
 
@@ -92,10 +93,11 @@ await query(`
         senha_pessoa,
         email_pessoa
     )
-    VALUES ($1, $2, NULL, $3)
+    VALUES ($1, $2, $3, $4)
 `, [
     cpf_pessoa,
     nome_pessoa,
+    senha_pessoa,
     email_pessoa
 ]);
 
@@ -122,6 +124,80 @@ await query(`
     }
 };
 
+// Cadastro de cliente pela página de cadastro
+exports.cadastrarCliente = async (req, res) => {
+    try {
+        const {
+            cpf_pessoa,
+            nome_pessoa,
+            email_pessoa,
+            senha_pessoa
+        } = req.body;
+
+        if (!cpf_pessoa || !nome_pessoa || !email_pessoa || !senha_pessoa) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Preencha todos os campos.'
+            });
+        }
+
+        if (!/^\d{11}$/.test(cpf_pessoa)) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'O CPF deve conter 11 números.'
+            });
+        }
+
+        // Verifica se o CPF já está cadastrado
+        const existente = await query(`
+            SELECT cpf_pessoa
+            FROM pessoa
+            WHERE cpf_pessoa = $1
+        `, [cpf_pessoa]);
+
+        if (existente.rows.length > 0) {
+            return res.status(409).json({
+                sucesso: false,
+                mensagem: 'Este CPF já está cadastrado.'
+            });
+        }
+
+        // Cadastra os dados da pessoa
+        await query(`
+            INSERT INTO pessoa (
+                cpf_pessoa,
+                nome_pessoa,
+                senha_pessoa,
+                email_pessoa
+            )
+            VALUES ($1, $2, $3, $4)
+        `, [
+            cpf_pessoa,
+            nome_pessoa,
+            senha_pessoa,
+            email_pessoa
+        ]);
+
+        // Identifica a pessoa como cliente
+        await query(`
+            INSERT INTO cliente (pessoa_cpf_pessoa)
+            VALUES ($1)
+        `, [cpf_pessoa]);
+
+        return res.status(201).json({
+            sucesso: true,
+            mensagem: 'Conta criada com sucesso!'
+        });
+
+    } catch (error) {
+        console.error('Erro ao cadastrar cliente:', error);
+
+        return res.status(500).json({
+            sucesso: false,
+            mensagem: 'Erro ao realizar o cadastro.'
+        });
+    }
+};
 
 // Alterar cliente
 exports.atualizarCliente = async (req, res) => {
@@ -196,6 +272,115 @@ exports.deletarCliente = async (req, res) => {
         res.status(500).json({
             sucesso: false,
             mensagem: 'Erro ao excluir cliente.'
+        });
+    }
+};
+
+
+ // Consultar perfil do cliente autenticado
+exports.consultarMeuPerfil = async (req, res) => {
+    try {
+        const cpf = req.signedCookies.usuarioLumiere;
+
+        if (!cpf) {
+            return res.status(401).json({
+                sucesso: false,
+                mensagem: 'Faça login para acessar seu perfil.'
+            });
+        }
+
+        const result = await query(`
+            SELECT
+                p.cpf_pessoa,
+                p.nome_pessoa,
+                p.email_pessoa
+            FROM pessoa p
+            INNER JOIN cliente c
+                ON c.pessoa_cpf_pessoa = p.cpf_pessoa
+            WHERE p.cpf_pessoa = $1
+        `, [cpf]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: 'Perfil de cliente não encontrado.'
+            });
+        }
+
+        return res.json({
+            sucesso: true,
+            cliente: result.rows[0]
+        });
+
+    } catch (error) {
+        console.error('Erro ao consultar perfil:', error);
+
+        return res.status(500).json({
+            sucesso: false,
+            mensagem: 'Erro ao consultar perfil.'
+        });
+    }
+};
+
+
+// Atualizar perfil do cliente autenticado
+exports.atualizarMeuPerfil = async (req, res) => {
+    try {
+        const cpf = req.signedCookies.usuarioLumiere;
+
+        if (!cpf) {
+            return res.status(401).json({
+                sucesso: false,
+                mensagem: 'Faça login para atualizar seu perfil.'
+            });
+        }
+
+        const { nome_pessoa, email_pessoa } = req.body;
+
+        if (!nome_pessoa || !email_pessoa) {
+            return res.status(400).json({
+                sucesso: false,
+                mensagem: 'Informe o nome e o e-mail.'
+            });
+        }
+
+        const result = await query(`
+            UPDATE pessoa
+            SET
+                nome_pessoa = $1,
+                email_pessoa = $2
+            WHERE cpf_pessoa = $3
+            AND EXISTS (
+                SELECT 1
+                FROM cliente
+                WHERE pessoa_cpf_pessoa = $3
+            )
+            RETURNING cpf_pessoa, nome_pessoa, email_pessoa
+        `, [
+            nome_pessoa.trim(),
+            email_pessoa.trim(),
+            cpf
+        ]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                sucesso: false,
+                mensagem: 'Perfil de cliente não encontrado.'
+            });
+        }
+
+        return res.json({
+            sucesso: true,
+            mensagem: 'Perfil atualizado com sucesso!',
+            cliente: result.rows[0]
+        });
+
+    } catch (error) {
+        console.error('Erro ao atualizar perfil:', error);
+
+        return res.status(500).json({
+            sucesso: false,
+            mensagem: 'Erro ao atualizar perfil.'
         });
     }
 };

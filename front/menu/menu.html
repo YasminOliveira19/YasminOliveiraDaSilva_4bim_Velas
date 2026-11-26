@@ -1,69 +1,359 @@
-<!DOCTYPE html> 
-<html lang="pt-BR"> 
- 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Lumière | Velas Aromáticas</title> 
- 
-    <link rel="stylesheet" href="menu.css"> 
-</head> 
- 
-<body> 
- 
-    <header> 
-        <div class="logo"> 
-            LUMIÈRE 
-        </div> 
-    </header> 
- 
- 
-    <main> 
- 
-        <section class="inicio"> 
- 
-            <div class="imagem"> 
-                <img src="vela.jpg" alt="Velas aromáticas decoradas com elementos naturais"> 
-            </div> 
- 
-            <div class="apresentacao"> 
- 
-                <h1>Velas que transformam momentos</h1> 
- 
-                <p> 
-                   Bem-vindo ao sistema de gerenciamento da Lumière.
-                   Aqui você pode controlar produtos, categorias e clientes...
-                </p> 
- 
-                <a href="../login/login.html" class="botao"> 
-                    ACESSAR GERENCIAMENTO 
-                </a> 
- 
-            </div> 
- 
-        </section> 
- 
- 
-        <section class="sobre"> 
- 
-            <h2>Bem-vindo à Lumière</h2> 
-  
- 
-        </section> 
- 
- 
-        <aside> 
-            <p>Gerencie sua loja de velas.</p> 
-        </aside> 
- 
-    </main> 
- 
- 
-    <footer> 
-        <p>Lumière — Loja de Velas Aromáticas</p> 
-        <p>Yasmin Oliveira da Silva | DW1 | M32 | 2026</p> 
-    </footer> 
- 
-</body> 
- 
-</html>   
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière | Velas Aromáticas</title>
+
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO PRINCIPAL -->
+    <header>
+
+        <div class="logo">
+            <a href="index.html">
+                <h1>LUMIÈRE</h1>
+                <p>VELAS AROMÁTICAS</p>
+            </a>
+        </div>
+
+        <!-- CATEGORIAS DE PRODUTOS -->
+        <section class="categorias" id="produtos">
+
+            <div class="lista-categorias">
+
+                <a href="../Visão Cliente/velas perfumadas/perfumadas.html" class="categoria">
+                    <h3>Velas Perfumadas</h3>
+                </a>
+
+                <a href="../Visão Cliente/velas com pedras/pedras.html" class="categoria">
+                    <h3>Velas com Pedras</h3>
+                </a>
+
+                <a href="../Visão Cliente/pastilhas perfumadas/pastilhas.html" class="categoria">
+                    <h3>Pastilhas Perfumadas</h3>
+                </a>
+
+            </div>
+
+        </section>
+
+        <div class="icones-cabecalho">
+    <a href="../login/login.html" id="linkConta" aria-label="Login">
+        👤 <span id="textoConta">Login</span>
+    </a>
+
+    <a href="../Visão Cliente/carrinho/carrinho.html" aria-label="Carrinho">
+        🛒
+    </a>
+
+</div>
+
+    </header>
+
+
+    <main>
+
+        <!-- CARROSSEL DE IMAGENS -->
+        <section class="carrossel" id="inicio">
+
+            <div class="slides">
+
+                <div class="slide ativo">
+                    <img src="./img/Velas e Aromas Lumière em Tons Quentes.png" alt="Velas aromáticas">
+                </div>
+
+                <div class="slide">
+                    <img src="./img/Velas Aromáticas Lumière em Luz Suave.png" alt="Velas aromáticas">
+                </div>
+
+                <div class="slide">
+                    <img src="./img/Velas e Pastilhas Perfumadas Lumière.png" alt="Velas e pastilhas perfumadas">
+                </div>
+
+            </div>
+
+            <button class="seta anterior" type="button" aria-label="Imagem anterior">
+                &#10094;
+            </button>
+
+            <button class="seta proxima" type="button" aria-label="Próxima imagem">
+                &#10095;
+            </button>
+
+            <div class="indicadores">
+                <span class="indicador ativo"></span>
+                <span class="indicador"></span>
+                <span class="indicador"></span>
+            </div>
+
+        </section>
+
+
+        <!-- CARROSSEL DE PRODUTOS EM DESTAQUE -->
+        <section class="destaques">
+
+            <h2>Produtos em destaque</h2>
+
+            <div class="carrossel-destaques">
+
+                <button class="seta-destaque anterior-destaque" type="button" aria-label="Produtos anteriores">
+                    &#10094;
+                </button>
+
+                <div class="janela-destaques">
+
+                    <div class="lista-destaques">
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque1.jpg" alt="Vela aromática de baunilha">
+                            </div>
+
+                            <h3>Vela Aromática de Baunilha</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Baunilha"
+                                data-preco="30.00" data-imagem="./img/destaque1.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque2.jpg" alt="Vela aromática de lavanda">
+                            </div>
+
+                            <h3>Vela Aromática de Lavanda</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Lavanda"
+                                data-preco="30.00" data-imagem="./img/destaque2.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque3.jpg" alt="Vela aromática de gengibre">
+                            </div>
+
+                            <h3>Vela Aromática de Gengibre</h3>
+                            <p class="preco">A partir de R$ 25,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Gengibre"
+                                data-preco="25.00" data-imagem="./img/destaque3.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque4.jpg" alt="Vela aromática de morango">
+                            </div>
+
+                            <h3>Vela Aromática de Morango</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Morango"
+                                data-preco="30.00" data-imagem="./img/destaque4.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque5.jpg" alt="Vela aromática de flor de cerejeira">
+                            </div>
+
+                            <h3>Vela Aromática de Flor de Cerejeira</h3>
+                            <p class="preco">A partir de R$ 35,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Flor de Cerejeira"
+                                data-preco="35.00" data-imagem="./img/destaque5.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque6.jpg" alt="Vela aromática de jasmim">
+                            </div>
+
+                            <h3>Vela Aromática de Jasmim</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Jasmim"
+                                data-preco="30.00" data-imagem="./img/destaque6.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque7.jpg" alt="Vela aromática de canela">
+                            </div>
+
+                            <h3>Vela Aromática de Canela</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Canela"
+                                data-preco="30.00" data-imagem="./img/destaque7.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque8.jpg" alt="Vela aromática de rosas vermelhas">
+                            </div>
+
+                            <h3>Vela Aromática de Rosas Vermelhas</h3>
+                            <p class="preco">A partir de R$ 35,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Rosas Vermelhas"
+                                data-preco="35.00" data-imagem="./img/destaque8.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque9.jpg" alt="Vela aromática de frutas vermelhas">
+                            </div>
+
+                            <h3>Vela Aromática de Frutas Vermelhas</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Frutas Vermelhas"
+                                data-preco="30.00" data-imagem="./img/destaque9.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+
+                        <div class="produto-destaque">
+
+                            <div class="imagem-produto">
+                                <img src="./img/destaque10.jpg" alt="Vela aromática de pêssego">
+                            </div>
+
+                            <h3>Vela Aromática de Pêssego</h3>
+                            <p class="preco">A partir de R$ 30,00</p>
+
+                            <button class="botao-comprar" type="button" data-nome="Vela Aromática de Pêssego"
+                                data-preco="30.00" data-imagem="./img/destaque10.jpg">
+                                Comprar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button class="seta-destaque proxima-destaque" type="button" aria-label="Próximos produtos">
+                    &#10095;
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- JANELA DE DETALHES DO PRODUTO -->
+        <section class="modal-produto" id="modalProduto" hidden>
+
+            <div class="conteudo-modal">
+
+                <button class="fechar-modal" id="fecharModal" type="button" aria-label="Fechar janela">
+                    &times;
+                </button>
+
+                <!-- IMAGEM DO PRODUTO -->
+                <div class="modal-imagem">
+                    <img src="" alt="Imagem do produto" id="imagemModal">
+                </div>
+
+                <!-- INFORMAÇÕES DO PRODUTO -->
+                <div class="modal-informacoes">
+
+                    <h2 id="nomeModal"></h2>
+
+                    <p class="preco-modal" id="precoModal"></p>
+
+                    <div class="opcoes-produto">
+
+                        <label for="tamanhoProduto">Tamanho:</label>
+
+                        <select id="tamanhoProduto">
+                            <option value="200">200 g</option>
+                            <option value="400">400 g</option>
+                            <option value="600">600 g</option>
+                        </select>
+
+                    </div>
+
+                    <div class="quantidade-produto">
+
+                        <label for="quantidadeProduto">Quantidade:</label>
+
+                        <input type="number" id="quantidadeProduto" value="1" min="1">
+
+                    </div>
+
+                    <button class="adicionar-carrinho" id="adicionarCarrinho" type="button">
+                        ADICIONAR AO CARRINHO
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Lumière — Loja de Velas Aromáticas</p>
+        <p>Yasmin Oliveira da Silva | DW1 | M32 | 2026</p>
+    </footer>
+
+
+    <script src="carrosel.js"></script>
+    <script src="menu.js"></script>
+</body>
+
+</html>
